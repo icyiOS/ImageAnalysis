@@ -13,6 +13,7 @@
 		28F1E421204ADE9000359378 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28F1E420204ADE9000359378 /* Assets.xcassets */; };
 		28F1E424204ADE9000359378 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28F1E422204ADE9000359378 /* LaunchScreen.storyboard */; };
 		28F1E42D204ADF9B00359378 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28F1E42C204ADF9B00359378 /* Alamofire.framework */; };
+		28F1E432204AE8F800359378 /* PhotoColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F1E431204AE8F800359378 /* PhotoColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		28F1E423204ADE9000359378 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		28F1E425204ADE9000359378 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		28F1E42C204ADF9B00359378 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		28F1E431204AE8F800359378 /* PhotoColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoColor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 			children = (
 				28F1E419204ADE9000359378 /* AppDelegate.swift */,
 				28F1E41B204ADE9000359378 /* ViewController.swift */,
+				28F1E431204AE8F800359378 /* PhotoColor.swift */,
 				28F1E41D204ADE9000359378 /* Main.storyboard */,
 				28F1E420204ADE9000359378 /* Assets.xcassets */,
 				28F1E422204ADE9000359378 /* LaunchScreen.storyboard */,
@@ -167,6 +170,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28F1E432204AE8F800359378 /* PhotoColor.swift in Sources */,
 				28F1E41C204ADE9000359378 /* ViewController.swift in Sources */,
 				28F1E41A204ADE9000359378 /* AppDelegate.swift in Sources */,
 			);

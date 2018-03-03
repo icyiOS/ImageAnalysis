@@ -28,21 +28,37 @@
                                     <action selector="choosePhotoButonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aFh-0E-akk"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="0IS-Wu-v9Q">
+                                <rect key="frame" x="177" y="356" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <progressView hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="oRY-GT-e5C">
+                                <rect key="frame" x="112" y="384" width="150" height="2"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="TBS-Kc-Msb"/>
+                                </constraints>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="oRY-GT-e5C" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2bq-ot-4cX"/>
+                            <constraint firstItem="oRY-GT-e5C" firstAttribute="top" secondItem="0IS-Wu-v9Q" secondAttribute="bottom" constant="8" id="5MC-vi-ULz"/>
                             <constraint firstItem="UNX-od-dq8" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Eww-Wu-R7k"/>
                             <constraint firstItem="UNX-od-dq8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="IlA-Cs-BLx"/>
                             <constraint firstItem="ONx-a4-b1N" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="XVo-W0-ddp"/>
+                            <constraint firstItem="0IS-Wu-v9Q" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Yum-ee-yXA"/>
                             <constraint firstItem="UNX-od-dq8" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="kZK-4T-lR0"/>
                             <constraint firstItem="UNX-od-dq8" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="lUL-9B-RQM"/>
                             <constraint firstItem="ONx-a4-b1N" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="nMu-VQ-Ikb"/>
+                            <constraint firstItem="0IS-Wu-v9Q" firstAttribute="top" secondItem="ONx-a4-b1N" secondAttribute="bottom" constant="8" id="zr8-1f-0Yf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Photo Analysis" id="OJc-x9-hlR"/>
                     <connections>
+                        <outlet property="activityIndicatorView" destination="0IS-Wu-v9Q" id="suC-iq-0Pk"/>
+                        <outlet property="choosePhotoButton" destination="ONx-a4-b1N" id="CAP-c9-anf"/>
                         <outlet property="imageView" destination="UNX-od-dq8" id="qyw-zd-KqF"/>
+                        <outlet property="progressView" destination="oRY-GT-e5C" id="C0y-Ya-88t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
