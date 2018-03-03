@@ -59,11 +59,58 @@
                         <outlet property="choosePhotoButton" destination="ONx-a4-b1N" id="CAP-c9-anf"/>
                         <outlet property="imageView" destination="UNX-od-dq8" id="qyw-zd-KqF"/>
                         <outlet property="progressView" destination="oRY-GT-e5C" id="C0y-Ya-88t"/>
+                        <segue destination="lPf-EL-Xzv" kind="show" identifier="ShowResults" id="8lx-YQ-zlH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="280.80000000000001" y="125.4872563718141"/>
+        </scene>
+        <!--Result-->
+        <scene sceneID="w0Y-kE-4D0">
+            <objects>
+                <viewController id="lPf-EL-Xzv" customClass="TagsColorsViewController" customModule="ImageAnalysis" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Nze-wo-hVe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="fqc-5p-DhW">
+                                <rect key="frame" x="16" y="72" width="343" height="29"/>
+                                <segments>
+                                    <segment title="Tags"/>
+                                    <segment title="Colors"/>
+                                </segments>
+                                <connections>
+                                    <action selector="tagsColorsSegmentedControlChanged:" destination="lPf-EL-Xzv" eventType="valueChanged" id="z0W-uI-CKi"/>
+                                </connections>
+                            </segmentedControl>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uoc-cq-NzK">
+                                <rect key="frame" x="0.0" y="108" width="375" height="559"/>
+                                <connections>
+                                    <segue destination="xPW-Nt-9Qh" kind="embed" identifier="DataTable" id="PPg-Cm-pRh"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="uoc-cq-NzK" firstAttribute="top" secondItem="fqc-5p-DhW" secondAttribute="bottom" constant="8" id="CTU-xV-Owd"/>
+                            <constraint firstItem="fqc-5p-DhW" firstAttribute="leading" secondItem="5ma-XY-6VF" secondAttribute="leading" constant="16" id="JMM-WP-cef"/>
+                            <constraint firstItem="uoc-cq-NzK" firstAttribute="leading" secondItem="5ma-XY-6VF" secondAttribute="leading" id="Sg3-ZD-P3d"/>
+                            <constraint firstItem="uoc-cq-NzK" firstAttribute="trailing" secondItem="5ma-XY-6VF" secondAttribute="trailing" id="TGp-1v-TKk"/>
+                            <constraint firstItem="fqc-5p-DhW" firstAttribute="top" secondItem="5ma-XY-6VF" secondAttribute="top" constant="8" id="jne-kY-eGq"/>
+                            <constraint firstItem="5ma-XY-6VF" firstAttribute="trailing" secondItem="fqc-5p-DhW" secondAttribute="trailing" constant="16" id="oR3-Yb-6jE"/>
+                            <constraint firstItem="uoc-cq-NzK" firstAttribute="bottom" secondItem="5ma-XY-6VF" secondAttribute="bottom" id="vPe-aE-Jgg"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="5ma-XY-6VF"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Result" id="zV3-cj-CML"/>
+                    <connections>
+                        <outlet property="segmentedControl" destination="fqc-5p-DhW" id="6UM-mI-CO0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uVE-8U-vS7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1128.8" y="124.58770614692655"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vzC-9H-O8X">
@@ -80,6 +127,39 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zlw-1n-ViK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-543" y="126"/>
+        </scene>
+        <!--Tags Colors Table View Controller-->
+        <scene sceneID="nxI-t6-2gR">
+            <objects>
+                <viewController id="xPW-Nt-9Qh" customClass="TagsColorsTableViewController" customModule="ImageAnalysis" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="gC3-MH-cRt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="559"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="9" reuseIdentifier="TagOrColorCell" textLabel="CuG-cb-bKO" style="IBUITableViewCellStyleDefault" id="Wz9-4b-uv1">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Wz9-4b-uv1" id="1Pj-9k-ZxA">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CuG-cb-bKO">
+                                            <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                    </tableView>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Vw-Ue-Hk0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1882" y="125"/>
         </scene>
     </scenes>
 </document>

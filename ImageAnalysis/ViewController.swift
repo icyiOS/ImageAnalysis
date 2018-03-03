@@ -24,9 +24,20 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        imageView.image = nil
+    }
+    
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "ShowResults" {
+            let controller = segue.destination as! TagsColorsViewController
+            controller.tags = tags
+            controller.colors = colors
+        }
     }
     
     @IBAction func choosePhotoButonPressed(_ sender: Any) {
@@ -74,7 +85,7 @@ extension ViewController: UIImagePickerControllerDelegate {
                 self.tags = tags
                 self.colors = colors
                 
-//                self.performSegue(withIdentifier: "ShowResults", sender: self)
+                self.performSegue(withIdentifier: "ShowResults", sender: self)
         })
         
         dismiss(animated: true)
