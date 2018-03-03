@@ -17,6 +17,7 @@
 		28F1E434204AF6C600359378 /* TagsColorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F1E433204AF6C600359378 /* TagsColorsViewController.swift */; };
 		28F1E436204AF79200359378 /* TagsColorTableData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F1E435204AF79200359378 /* TagsColorTableData.swift */; };
 		28F1E438204AF7BD00359378 /* TagsColorsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F1E437204AF7BD00359378 /* TagsColorsTableViewController.swift */; };
+		28F1E43A204AFE0100359378 /* ImaggaRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F1E439204AFE0100359378 /* ImaggaRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		28F1E433204AF6C600359378 /* TagsColorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsColorsViewController.swift; sourceTree = "<group>"; };
 		28F1E435204AF79200359378 /* TagsColorTableData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsColorTableData.swift; sourceTree = "<group>"; };
 		28F1E437204AF7BD00359378 /* TagsColorsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsColorsTableViewController.swift; sourceTree = "<group>"; };
+		28F1E439204AFE0100359378 /* ImaggaRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImaggaRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				28F1E433204AF6C600359378 /* TagsColorsViewController.swift */,
 				28F1E435204AF79200359378 /* TagsColorTableData.swift */,
 				28F1E437204AF7BD00359378 /* TagsColorsTableViewController.swift */,
+				28F1E439204AFE0100359378 /* ImaggaRouter.swift */,
 				28F1E41D204ADE9000359378 /* Main.storyboard */,
 				28F1E420204ADE9000359378 /* Assets.xcassets */,
 				28F1E422204ADE9000359378 /* LaunchScreen.storyboard */,
@@ -183,6 +186,7 @@
 				28F1E434204AF6C600359378 /* TagsColorsViewController.swift in Sources */,
 				28F1E436204AF79200359378 /* TagsColorTableData.swift in Sources */,
 				28F1E41C204ADE9000359378 /* ViewController.swift in Sources */,
+				28F1E43A204AFE0100359378 /* ImaggaRouter.swift in Sources */,
 				28F1E438204AF7BD00359378 /* TagsColorsTableViewController.swift in Sources */,
 				28F1E41A204ADE9000359378 /* AppDelegate.swift in Sources */,
 			);
