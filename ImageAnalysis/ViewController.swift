@@ -138,7 +138,9 @@ extension ViewController {
                         print("Content uploaded with ID: \(firstFileID)")
                         
                         self.downloadTags(contentID: firstFileID) { tags in
-                            completion(tags, [PhotoColor]())
+                            self.downloadColors(contentID: firstFileID) { colors in
+                                completion(tags, colors)
+                            }
                         }
                     }
                 case .failure(let encodingError):
@@ -175,6 +177,47 @@ extension ViewController {
                 })
                 
                 completion(tags)
+        }
+    }
+    
+    func downloadColors(contentID: String, completion: @escaping ([PhotoColor]) -> Void) {
+        Alamofire.request(
+            "http://api.imagga.com/v1/colors",
+            parameters: ["content": contentID],
+            headers: ["Authorization": "Basic YWNjXzcxNTEwZTczNTc1YmVmZjpkOTMwZjA4ZDRlNWVlMWI5MTg5NzEyNjlmNzc5OTBlYQ=="]
+            )
+            .responseJSON { response in
+                guard response.result.isSuccess else {
+                    print("Error while fetching colors: \(response.result.error)")
+                    completion([PhotoColor]())
+                    return
+                }
+                
+                guard let responseJSON = response.result.value as? [String: Any],
+                    let results = responseJSON["results"] as? [[String: Any]],
+                    let firstResult = results.first,
+                    let info = firstResult["info"] as? [String: Any],
+                    let imageColors = info["image_colors"] as? [[String: Any]] else {
+                        print("Invalid color information received from service")
+                        completion([PhotoColor]())
+                        return
+                }
+                
+                let photoColors = imageColors.flatMap({ (dict) -> PhotoColor? in
+                    guard let r = dict["r"] as? String,
+                        let g = dict["g"] as? String,
+                        let b = dict["b"] as? String,
+                        let closestPaletteColor = dict["closest_palette_color"] as? String else {
+                            return nil
+                    }
+                    
+                    return PhotoColor(red: Int(r),
+                                      green: Int(g),
+                                      blue: Int(b),
+                                      colorName: closestPaletteColor)
+                })
+                
+                completion(photoColors)
         }
     }
 }
