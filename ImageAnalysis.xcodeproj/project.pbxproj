@@ -12,6 +12,7 @@
 		28F1E41F204ADE9000359378 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28F1E41D204ADE9000359378 /* Main.storyboard */; };
 		28F1E421204ADE9000359378 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28F1E420204ADE9000359378 /* Assets.xcassets */; };
 		28F1E424204ADE9000359378 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28F1E422204ADE9000359378 /* LaunchScreen.storyboard */; };
+		28F1E42D204ADF9B00359378 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28F1E42C204ADF9B00359378 /* Alamofire.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		28F1E420204ADE9000359378 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		28F1E423204ADE9000359378 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		28F1E425204ADE9000359378 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		28F1E42C204ADF9B00359378 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +31,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28F1E42D204ADF9B00359378 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +43,7 @@
 			children = (
 				28F1E418204ADE9000359378 /* ImageAnalysis */,
 				28F1E417204ADE9000359378 /* Products */,
+				28F1E42B204ADF9B00359378 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +68,14 @@
 			path = ImageAnalysis;
 			sourceTree = "<group>";
 		};
+		28F1E42B204ADF9B00359378 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				28F1E42C204ADF9B00359378 /* Alamofire.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,6 +86,7 @@
 				28F1E412204ADE9000359378 /* Sources */,
 				28F1E413204ADE9000359378 /* Frameworks */,
 				28F1E414204ADE9000359378 /* Resources */,
+				28F1E42E204ADFAB00359378 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -130,6 +143,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		28F1E42E204ADFAB00359378 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		28F1E412204ADE9000359378 /* Sources */ = {
@@ -276,6 +307,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 999Z8LAQ98;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ImageAnalysis/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.lichaoyi.ImageAnalysis;
@@ -291,6 +326,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 999Z8LAQ98;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ImageAnalysis/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.lichaoyi.ImageAnalysis;
