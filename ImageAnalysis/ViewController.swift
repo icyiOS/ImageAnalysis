@@ -126,12 +126,44 @@ extension ViewController {
                         
                         print("Content uploaded with ID: \(firstFileID)")
                         
-                        completion([String](), [PhotoColor]())
+                        self.downloadTags(contentID: firstFileID) { tags in
+                            completion(tags, [PhotoColor]())
+                        }
                     }
                 case .failure(let encodingError):
                     print(encodingError)
                 }
         }
         )
+    }
+    
+    func downloadTags(contentID: String, completion: @escaping ([String]) -> Void) {
+        Alamofire.request(
+            "http://api.imagga.com/v1/tagging",
+            parameters: ["content": contentID],
+            headers: ["Authorization": "Basic YWNjXzcxNTEwZTczNTc1YmVmZjpkOTMwZjA4ZDRlNWVlMWI5MTg5NzEyNjlmNzc5OTBlYQ=="]
+            )
+            .responseJSON { response in
+                guard response.result.isSuccess else {
+                    print("Error while fetching tags: \(response.result.error)")
+                    completion([String]())
+                    return
+                }
+                
+                guard let responseJSON = response.result.value as? [String: Any],
+                    let results = responseJSON["results"] as? [[String: Any]],
+                    let firstObject = results.first,
+                    let tagsAndConfidences = firstObject["tags"] as? [[String: Any]] else {
+                        print("Invalid tag information received from the service")
+                        completion([String]())
+                        return
+                }
+                
+                let tags = tagsAndConfidences.flatMap({ dict in
+                    return dict["tag"] as? String
+                })
+                
+                completion(tags)
+        }
     }
 }
